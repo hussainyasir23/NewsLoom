@@ -20,7 +20,8 @@ class HomeViewController: UIViewController {
         tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 100
+        tableView.showsVerticalScrollIndicator = false
+        tableView.estimatedRowHeight = 104
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()

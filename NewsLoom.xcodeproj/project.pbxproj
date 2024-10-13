@@ -6,30 +6,21 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		541A6B592CBBCF510080A689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A6B502CBBCF510080A689 /* AppDelegate.swift */; };
+		541A6B5A2CBBCF510080A689 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541A6B552CBBCF510080A689 /* SceneDelegate.swift */; };
+		541A6B5C2CBBCF510080A689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541A6B512CBBCF510080A689 /* Assets.xcassets */; };
+		541A6B5E2CBBCF510080A689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A6B532CBBCF510080A689 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		541A6B372CBBC57B0080A689 /* NewsLoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsLoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		541A6B502CBBCF510080A689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		541A6B512CBBCF510080A689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		541A6B522CBBCF510080A689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541A6B552CBBCF510080A689 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		541A6B582CBBCF510080A689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		541A6B492CBBC57C0080A689 /* Exceptions for "NewsLoom" folder in "NewsLoom" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 541A6B362CBBC57B0080A689 /* NewsLoom */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		541A6B392CBBC57B0080A689 /* NewsLoom */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				541A6B492CBBC57C0080A689 /* Exceptions for "NewsLoom" folder in "NewsLoom" target */,
-			);
-			path = NewsLoom;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		541A6B342CBBC57B0080A689 /* Frameworks */ = {
@@ -45,7 +36,7 @@
 		541A6B2E2CBBC57B0080A689 = {
 			isa = PBXGroup;
 			children = (
-				541A6B392CBBC57B0080A689 /* NewsLoom */,
+				541A6B602CBBCF710080A689 /* NewsLoom */,
 				541A6B382CBBC57B0080A689 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +47,34 @@
 				541A6B372CBBC57B0080A689 /* NewsLoom.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		541A6B602CBBCF710080A689 /* NewsLoom */ = {
+			isa = PBXGroup;
+			children = (
+				541A6B622CBBD1440080A689 /* Assets */,
+				541A6B612CBBCFA40080A689 /* AppDelegate */,
+			);
+			path = NewsLoom;
+			sourceTree = "<group>";
+		};
+		541A6B612CBBCFA40080A689 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				541A6B502CBBCF510080A689 /* AppDelegate.swift */,
+				541A6B552CBBCF510080A689 /* SceneDelegate.swift */,
+				541A6B532CBBCF510080A689 /* LaunchScreen.storyboard */,
+				541A6B522CBBCF510080A689 /* Info.plist */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		541A6B622CBBD1440080A689 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				541A6B512CBBCF510080A689 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +91,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				541A6B392CBBC57B0080A689 /* NewsLoom */,
 			);
 			name = NewsLoom;
 			packageProductDependencies = (
@@ -122,6 +138,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541A6B5C2CBBCF510080A689 /* Assets.xcassets in Resources */,
+				541A6B5E2CBBCF510080A689 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +150,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541A6B592CBBCF510080A689 /* AppDelegate.swift in Sources */,
+				541A6B5A2CBBCF510080A689 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		541A6B532CBBCF510080A689 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				541A6B582CBBCF510080A689 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		541A6B4B2CBBC57C0080A689 /* Debug */ = {
@@ -147,12 +178,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K883F3UFX3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsLoom/Info.plist;
+				INFOPLIST_FILE = NewsLoom/AppDelegate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -175,12 +207,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K883F3UFX3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsLoom/Info.plist;
+				INFOPLIST_FILE = NewsLoom/AppDelegate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -246,6 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = NewsLoom/AppDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -303,6 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = NewsLoom/AppDelegate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;

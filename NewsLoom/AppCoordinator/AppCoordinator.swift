@@ -68,7 +68,8 @@ class AppCoordinator {
     }
     
     private func makeCategoriesViewController() -> UIViewController {
-        return CategoriesViewController()
+        let viewModel = CategoriesViewModel()
+        return CategoriesViewController(viewModel: viewModel)
     }
     
     private func makeSearchViewController() -> UIViewController {
@@ -81,15 +82,6 @@ class AppCoordinator {
     
     private func makeSettingsViewController() -> UIViewController {
         return SettingsViewController()
-    }
-}
-
-
-class CategoriesViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        title = "Categories"
     }
 }
 

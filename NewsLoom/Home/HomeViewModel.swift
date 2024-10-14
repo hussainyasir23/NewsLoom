@@ -37,7 +37,7 @@ class HomeViewModel {
             currentPage = 1
         }
         
-        articleService.fetchTopHeadlines(page: currentPage)
+        articleService.fetchTopHeadlines(country: .defaultCountry, category: nil, page: currentPage)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self = self else {

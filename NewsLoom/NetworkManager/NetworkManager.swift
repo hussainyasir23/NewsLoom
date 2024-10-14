@@ -23,14 +23,9 @@ class NetworkManager: NetworkManaging {
     
     func request<T: Decodable>(_ endpoint: NewsAPIEndpoints) -> AnyPublisher<T, NewsAPIError> {
         
-        guard let url = makeURL(for: endpoint) else {
+        guard let request = makeURLRequest(for: endpoint) else {
             return Fail(error: .unexpectedError).eraseToAnyPublisher()
         }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        request.allHTTPHeaderFields = endpoint.headers
-        request.addValue(apiKey, forHTTPHeaderField: "X-Api-Key")
         
         return session.dataTaskPublisher(for: request)
             .mapError { error in
@@ -71,8 +66,25 @@ class NetworkManager: NetworkManaging {
             }
             .eraseToAnyPublisher()
     }
+}
+
+private extension NetworkManager {
     
-    private func makeURL(for endpoint: NewsAPIEndpoints) -> URL? {
+    func makeURLRequest(for endpoint: NewsAPIEndpoints) -> URLRequest? {
+        
+        guard let url = makeURL(for: endpoint) else {
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.method.rawValue
+        request.allHTTPHeaderFields = endpoint.headers
+        request.addValue(apiKey, forHTTPHeaderField: "X-Api-Key")
+        
+        return request
+    }
+    
+    func makeURL(for endpoint: NewsAPIEndpoints) -> URL? {
         
         guard var urlComponents = URLComponents(string: endpoint.baseURL + endpoint.path) else {
             return nil

@@ -11,6 +11,9 @@ import Combine
 class HomeViewModel {
     
     @Published private(set) var state: ViewState = .idle
+    @Published var selectedCountry: NewsCountry = .defaultCountry
+    @Published var selectedCategory: NewsCategory?
+    
     private var articles: [Article] = []
     
     private var cancellables: Set<AnyCancellable> = []
@@ -37,7 +40,7 @@ class HomeViewModel {
             currentPage = 1
         }
         
-        articleService.fetchTopHeadlines(country: .defaultCountry, category: nil, page: currentPage)
+        articleService.fetchTopHeadlines(country: selectedCountry, category: selectedCategory, page: currentPage)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self = self else {
@@ -76,6 +79,16 @@ class HomeViewModel {
     
     var numberOfArticles: Int {
         return articles.count
+    }
+    
+    func updateCountry(_ country: NewsCountry) {
+        selectedCountry = country
+        fetchTopHeadlines()
+    }
+    
+    func updateCategory(_ category: NewsCategory?) {
+        selectedCategory = category
+        fetchTopHeadlines()
     }
 }
 

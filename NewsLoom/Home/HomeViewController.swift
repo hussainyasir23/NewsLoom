@@ -49,6 +49,14 @@ class HomeViewController: UIViewController {
         return label
     }()
     
+    private lazy var filterButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(
+            image: UIImage(systemName: "line.horizontal.3.decrease.circle"),
+            menu: createFilterMenu()
+        )
+        return button
+    }()
+    
     init(viewModel: HomeViewModel = HomeViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -66,6 +74,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.refreshControl = refreshControl
     }
     
@@ -76,6 +85,8 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
         view.addSubview(loadingIndicator)
         view.addSubview(errorLabel)
+        
+        navigationItem.rightBarButtonItem = filterButton
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -98,6 +109,20 @@ class HomeViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 self?.updateUI(for: state)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$selectedCountry
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.updateFilterButtonMenu()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$selectedCategory
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.updateFilterButtonMenu()
             }
             .store(in: &cancellables)
     }
@@ -150,6 +175,45 @@ class HomeViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func updateFilterButtonMenu() {
+        filterButton.menu = createFilterMenu()
+    }
+    
+    private func createFilterMenu() -> UIMenu {
+        let countryMenu = UIMenu(
+            title: viewModel.selectedCountry.name,
+            children: NewsCountry.allCases.map { country in
+                UIAction(
+                    title: "\(country.name) (\(country.code))",
+                    state: country == viewModel.selectedCountry ? .on : .off
+                ) { [weak self] _ in
+                    self?.viewModel.updateCountry(country)
+                }
+            }
+        )
+        
+        let categoryMenu = UIMenu(
+            title: viewModel.selectedCategory?.name ?? "Select Category",
+            children: [
+                UIAction(
+                    title: "All Categories",
+                    state: viewModel.selectedCategory == nil ? .on : .off
+                ) { [weak self] _ in
+                    self?.viewModel.updateCategory(nil)
+                }
+            ] + NewsCategory.allCases.map { category in
+                UIAction(
+                    title: category.name,
+                    state: category == viewModel.selectedCategory ? .on : .off
+                ) { [weak self] _ in
+                    self?.viewModel.updateCategory(category)
+                }
+            }
+        )
+        
+        return UIMenu(children: [countryMenu, categoryMenu])
     }
 }
 

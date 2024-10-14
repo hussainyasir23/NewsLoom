@@ -71,9 +71,8 @@ class ArticleTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            articleImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            articleImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 12),
             
+            articleImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             articleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             articleImageView.widthAnchor.constraint(equalToConstant: 80),
             articleImageView.heightAnchor.constraint(equalToConstant: 80),
@@ -89,7 +88,9 @@ class ArticleTableViewCell: UITableViewCell {
             sourceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             sourceLabel.leadingAnchor.constraint(equalTo: articleImageView.trailingAnchor, constant: 12),
             sourceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            sourceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
+            sourceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            
+            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 104)
         ])
     }
     
